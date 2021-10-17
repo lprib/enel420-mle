@@ -12,6 +12,7 @@ def generate_likelihood_fn(x_values, y_values):
         # predicted_y = slope * x_values + y_intercept
         predicted_y = np.sin(2*np.pi*freq*x_values)
 
+        # Negative here so that when opimizer minimizes, it actually finds the maximum
         negative_log_likelihood = - \
             np.sum(stats.norm.logpdf(
                 y_values, loc=predicted_y, scale=standard_deviation))
