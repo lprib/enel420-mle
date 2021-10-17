@@ -35,8 +35,11 @@ print(xres, yres)
 
 ax = plt.gca()
 
+# How many standard deviations to get to 99th percentile?
+percentile_99 = 2.3253
+
 # draw ellipse at (meanx, meany) with size (stddevx, stddevy)
-ellipse = Ellipse(xy=(xres[0], yres[0]), width=xres[1], height=yres[1], lw=5, edgecolor="C1", fc="None")
+ellipse = Ellipse(xy=(xres[0], yres[0]), width=2*percentile_99*xres[1], height=2*percentile_99*yres[1], lw=5, edgecolor="C1", fc="None")
 ax.add_patch(ellipse)
 
 plt.axis((0, 10, 0, 10))
